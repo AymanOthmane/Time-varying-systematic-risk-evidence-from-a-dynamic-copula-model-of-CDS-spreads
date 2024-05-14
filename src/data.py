@@ -7,12 +7,12 @@ class Univers:
         self.data = None
 
     def read_data(self):
-        if self.filepath.endswith('.csv'):
+        if self.filepath.endswith('.csv','txt'):
             self.data = pd.read_csv(self.filepath)
         elif self.filepath.endswith(('.xls', '.xlsx')):
             self.data = pd.read_excel(self.filepath)
         else:
-            raise ValueError("Unsupported file format. Please use a CSV or Excel file.")
+            raise ValueError("Unsupported file format. Please use a CSV or Excel or CSV Text file.")
         
         if 'Date' in self.data.columns:
             self.data['Date'] = pd.to_datetime(self.data['Date'])
